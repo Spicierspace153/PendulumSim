@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.util.function.Consumer;
 
 public class PendulumAnimation extends Application {
-//initialization
+    //initialization
     private double damping = 0.995;
     private double length = 200;
     private double angle = Math.PI / 4;
@@ -21,6 +21,10 @@ public class PendulumAnimation extends Application {
     private double angularAcceleration = 0;
     private double speed = 1.0;
     private double bobSize = 10;
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     //build a stage
     @Override
@@ -30,7 +34,7 @@ public class PendulumAnimation extends Application {
         root.getChildren().add(canvas);
 
 
-       //build labels (duh)
+        //build labels (duh)
         addLabeledSlider(root, "Length", 50, 400, length, 350, 30, newValue -> length = newValue);
         addLabeledSlider(root, "Angle", -Math.PI / 2, Math.PI / 2, angle, 350, 60, newValue -> angle = newValue);
         addLabeledSlider(root, "Speed", 0.1, 8, speed, 350, 90, newValue -> speed = newValue);
@@ -77,9 +81,6 @@ public class PendulumAnimation extends Application {
         primaryStage.show();
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
     // I FUCKING LOVE HELPER METHODS
     private void addLabeledSlider(AnchorPane root, String labelText,
                                   double sliderMin, double sliderMax,
